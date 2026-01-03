@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar";
 
 const MainLayout = () => {
   return (
-    <div>
+    <>
       <header className="w-11/12 mx-auto">
         <Header></Header>
         <Navbar></Navbar>
@@ -16,7 +16,7 @@ const MainLayout = () => {
       <footer>
         <Footer></Footer>
       </footer>
-    </div>
+    </>
   );
 };
 

@@ -6,35 +6,43 @@ import Register from "../pages/Register";
 import MyProfile from "../pages/MyProfile";
 import About from "../pages/About";
 import Error from "../components/Error";
+import Home from "../pages/Home";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
-  },
-  {
-    path: "/brands",
-    element: <Brands></Brands>,
-  },
-  {
-    path: "/login",
-    element: <Login></Login>,
-  },
-  {
-    path: "/register",
-    element: <Register></Register>,
-  },
-  {
-    path: "/myprofile",
-    element: <MyProfile></MyProfile>,
-  },
-  {
-    path: "/about",
-    element: <About></About>,
-  },
-  {
-    path: "*",
-    element: <Error></Error>,
+    errorElement: <Error></Error>,
+    children: [
+      {
+        index: true,
+        element: <Home></Home>,
+      },
+      {
+        path: "/brands",
+        element: <Brands></Brands>,
+      },
+      {
+        path: "/brand/:id",
+        element: <h2>brand details</h2>,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
+      },
+      {
+        path: "/myprofile",
+        element: <MyProfile></MyProfile>,
+      },
+      {
+        path: "/about",
+        element: <About></About>,
+      },
+    ],
   },
 ]);
 
