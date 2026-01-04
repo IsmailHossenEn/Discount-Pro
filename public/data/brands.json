@@ -1,0 +1,237 @@
+[
+  {
+    "_id": "brand_001",
+    "brand_name": "Daraz",
+    "rating": 4.5,
+    "description": "Bangladesh's largest online marketplace offering electronics, fashion, and daily essentials.",
+    "brand_logo": "https://ecdn.dhakatribune.net/contents/cache/images/800x450x1/uploads/media/2024/02/27/Daraz-logo-84c22fc67c59a2ceda214197439f3e40.jpg?jadewits_media_id=15844",
+    "shop_link": "https://www.daraz.com.bd",
+    "category": "E-commerce",
+    "isSaleOn": true,
+    "coupons": [
+      {
+        "coupon_code": "DARAZ10",
+        "description": "Get 10% off on selected items",
+        "expiry_date": "2026-02-15",
+        "condition": "Minimum purchase 1500 BDT",
+        "coupon_type": "Percentage"
+      },
+      {
+        "coupon_code": "FREESHIP",
+        "description": "Free delivery on all orders",
+        "expiry_date": "2026-01-31",
+        "condition": "Applicable for Dhaka city only",
+        "coupon_type": "Free Shipping"
+      }
+    ]
+  },
+  {
+    "_id": "brand_002",
+    "brand_name": "Foodpanda",
+    "rating": 4.2,
+    "description": "Online food delivery platform from your favorite restaurants.",
+    "brand_logo": "https://ecdn.dhakatribune.net/contents/cache/images/640x359x1/uploads/dten/2019/05/download-1557674731115.jpg",
+    "shop_link": "https://www.foodpanda.com.bd",
+    "category": "Food Delivery",
+    "isSaleOn": true,
+    "coupons": [
+      {
+        "coupon_code": "PANDA60",
+        "description": "Flat 60 BDT off",
+        "expiry_date": "2026-02-10",
+        "condition": "Minimum order 399 BDT",
+        "coupon_type": "Flat"
+      }
+    ]
+  },
+  {
+    "_id": "brand_003",
+    "brand_name": "Chaldal",
+    "rating": 4.3,
+    "description": "Online grocery delivery service across Bangladesh.",
+    "brand_logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyKT8F1O6NjCIwmIot6e-Otat1xRa9YLUDSA&s",
+    "shop_link": "https://www.chaldal.com",
+    "category": "Grocery",
+    "isSaleOn": false,
+    "coupons": [
+      {
+        "coupon_code": "GROCERY5",
+        "description": "5% discount on grocery items",
+        "expiry_date": "2026-03-01",
+        "condition": "Valid on first order only",
+        "coupon_type": "Percentage"
+      }
+    ]
+  },
+  {
+    "_id": "brand_004",
+    "brand_name": "Pickaboo",
+    "rating": 4.1,
+    "description": "Trusted electronics and gadget store in Bangladesh.",
+    "brand_logo": "https://www.pickaboo.com/blog/wp-content/uploads/2023/11/Pickaboo-1024x538.jpg",
+    "shop_link": "https://www.pickaboo.com",
+    "category": "Electronics",
+    "isSaleOn": true,
+    "coupons": [
+      {
+        "coupon_code": "TECH500",
+        "description": "Flat 500 BDT discount",
+        "expiry_date": "2026-02-20",
+        "condition": "Minimum purchase 10000 BDT",
+        "coupon_type": "Flat"
+      }
+    ]
+  },
+  {
+    "_id": "brand_005",
+    "brand_name": "AjkerDeal",
+    "rating": 3.9,
+    "description": "Popular local e-commerce platform with budget-friendly products.",
+    "brand_logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZU-xt1dmFN4g5LvgmBtkt3SpZmMjhFPSOsA&s",
+    "shop_link": "https://www.ajkerdeal.com",
+    "category": "E-commerce",
+    "isSaleOn": false,
+    "coupons": [
+      {
+        "coupon_code": "SAVE8",
+        "description": "Save 8% on fashion products",
+        "expiry_date": "2026-01-25",
+        "condition": "Applicable on clothing only",
+        "coupon_type": "Percentage"
+      }
+    ]
+  },
+  {
+    "_id": "brand_006",
+    "brand_name": "Rokomari",
+    "rating": 4.6,
+    "description": "Largest online bookstore in Bangladesh.",
+    "brand_logo": "https://www.rokomari.com/static/200/images/rokomari_og.jpg",
+    "shop_link": "https://www.rokomari.com",
+    "category": "Books",
+    "isSaleOn": true,
+    "coupons": [
+      {
+        "coupon_code": "BOOK15",
+        "description": "15% off on all books",
+        "expiry_date": "2026-02-28",
+        "condition": "No minimum purchase required",
+        "coupon_type": "Percentage"
+      }
+    ]
+  },
+  {
+    "_id": "brand_007",
+    "brand_name": "Pathao",
+    "rating": 4.4,
+    "description": "Ride sharing and food delivery service.",
+    "brand_logo": "https://pathao.com/wp-content/uploads/2023/10/Pathao-New-Logo.png",
+    "shop_link": "https://www.pathao.com",
+    "category": "Ride Sharing",
+    "isSaleOn": true,
+    "coupons": [
+      {
+        "coupon_code": "RIDE50",
+        "description": "50 BDT off on rides",
+        "expiry_date": "2026-02-18",
+        "condition": "Valid for bike rides only",
+        "coupon_type": "Flat"
+      }
+    ]
+  },
+  {
+    "_id": "brand_008",
+    "brand_name": "Shohoz",
+    "rating": 4.0,
+    "description": "Bus ticket booking and ride services.",
+    "brand_logo": "https://www.shohoz.com/assets/img/shohoz_logo_fb.png",
+    "shop_link": "https://www.shohoz.com",
+    "category": "Travel",
+    "isSaleOn": true,
+    "coupons": [
+      {
+        "coupon_code": "BUS100",
+        "description": "100 BDT discount on bus tickets",
+        "expiry_date": "2026-02-25",
+        "condition": "Minimum ticket price 800 BDT",
+        "coupon_type": "Flat"
+      }
+    ]
+  },
+  {
+    "_id": "brand_009",
+    "brand_name": "Bikroy",
+    "rating": 4.1,
+    "description": "Online classified marketplace.",
+    "brand_logo": "https://play-lh.googleusercontent.com/OFqkNw9ns70116-WgXWbg1AJAPEkAyCnnWl_jGLZoH5zL52zuQQtIqx8sOY22mIUzg=w416-h235-rw",
+    "shop_link": "https://bikroy.com",
+    "category": "Marketplace",
+    "isSaleOn": false,
+    "coupons": [
+      {
+        "coupon_code": "POSTFREE",
+        "description": "Free ad posting",
+        "expiry_date": "2026-03-01",
+        "condition": "Limited time offer",
+        "coupon_type": "Free Service"
+      }
+    ]
+  },
+  {
+    "_id": "brand_010",
+    "brand_name": "Evaly (Demo)",
+    "rating": 3.5,
+    "description": "Demo brand for coupon testing.",
+    "brand_logo": "https://cdn.aptoide.com/imgs/3/d/d/3dd07aadd22ebb190d46fc1a70edfb87_fgraphic.jpg",
+    "shop_link": "https://www.evaly.com.bd",
+    "category": "E-commerce",
+    "isSaleOn": true,
+    "coupons": [
+      {
+        "coupon_code": "MEGA30",
+        "description": "30% mega discount",
+        "expiry_date": "2026-01-20",
+        "condition": "Selected items only",
+        "coupon_type": "Percentage"
+      }
+    ]
+  },
+  {
+    "_id": "brand_011",
+    "brand_name": "Star Tech",
+    "rating": 4.7,
+    "description": "Leading computer and tech store.",
+    "brand_logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0zbkj1OnV1JHmvd3WJZYL9jhED-kvpYkA6Q&s",
+    "shop_link": "https://www.startech.com.bd",
+    "category": "Technology",
+    "isSaleOn": true,
+    "coupons": [
+      {
+        "coupon_code": "PC1000",
+        "description": "1000 BDT off on PC builds",
+        "expiry_date": "2026-02-22",
+        "condition": "Minimum purchase 50000 BDT",
+        "coupon_type": "Flat"
+      }
+    ]
+  },
+  {
+    "_id": "brand_012",
+    "brand_name": "BanglaShoppers",
+    "rating": 4.0,
+    "description": "Online fashion and lifestyle store.",
+    "brand_logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRurlj2L1J80abXIgi8AtSR26BnolTpFoG8BQ&s",
+    "shop_link": "https://www.banglashoppers.com",
+    "category": "Fashion",
+    "isSaleOn": false,
+    "coupons": [
+      {
+        "coupon_code": "STYLE15",
+        "description": "15% off on apparel",
+        "expiry_date": "2026-03-15",
+        "condition": "Clothing items only",
+        "coupon_type": "Percentage"
+      }
+    ]
+  }
+]
