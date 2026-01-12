@@ -7,6 +7,9 @@ import MyProfile from "../pages/MyProfile";
 import About from "../pages/About";
 import Error from "../components/Error";
 import Home from "../pages/Home";
+import BrandDetails from "../pages/BrandDetails";
+import AuthLayout from "../layouts/AuthLayout";
+import PrivateRoute from "../provider/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -33,16 +36,17 @@ const router = createBrowserRouter([
 
       {
         path: "/brand/:id",
-        element: <h2>brand details</h2>,
+        element: (
+          <PrivateRoute>
+            <BrandDetails></BrandDetails>
+          </PrivateRoute>
+        ),
+        loader: async () => {
+          const res = await fetch("/data/brands.json");
+          return res.json();
+        },
       },
-      {
-        path: "/login",
-        element: <Login></Login>,
-      },
-      {
-        path: "/register",
-        element: <Register></Register>,
-      },
+
       {
         path: "/myprofile",
         element: <MyProfile></MyProfile>,
@@ -50,6 +54,20 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About></About>,
+      },
+    ],
+  },
+  {
+    path: "auth",
+    element: <AuthLayout></AuthLayout>,
+    children: [
+      {
+        path: "/auth/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/auth/register",
+        element: <Register></Register>,
       },
     ],
   },
