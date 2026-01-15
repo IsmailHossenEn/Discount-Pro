@@ -1,9 +1,15 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom"; // Remove if not using react-router
+import { Link, useLocation, useNavigate } from "react-router-dom"; // Remove if not using react-router
 import { AuthContext } from "../provider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Login = () => {
-  const { LoginUser, setNewUser, setLoading } = useContext(AuthContext);
+  const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState("");
+  const { LoginUser, setNewUser, newUser, setLoading } =
+    useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -11,13 +17,22 @@ const Login = () => {
     const email = form.get("email");
     const password = form.get("password");
 
+    if (password !== newUser) {
+      toast.error("enter valid password");
+      return;
+    }
+
     LoginUser(email, password)
       .then((result) => {
         const user = result.user;
         setNewUser(user);
+
+        navigate(`${location.state ? location.state : "/"}`);
       })
       .catch((error) => {
-        console.error("LOGIN ERROR:", error.code, error.message);
+        setError(error.code);
+        toast.error(error);
+        //console.error("LOGIN ERROR:", error.code, error.message);
       });
   };
 
@@ -53,20 +68,23 @@ const Login = () => {
               </label>
               <div className="relative">
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   name="password"
                   placeholder="••••••••"
                   className="input input-bordered w-full pr-12"
                   required
                 />
                 <button
-                  className="absolute inset-y-0 right-0 pr-3 flex items-center"
-                  // onClick={() => setShowPassword(!showPassword)}
+                  className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer"
+                  onClick={() => setShowPassword((prev) => !prev)}
                 >
-                  {/* {showPassword ? "🙈" : "👁️"} */}
+                  {!showPassword ? "🙈" : "👁️"}
                 </button>
               </div>
             </div>
+            {error && (
+              <p className="font-semibold text-xs text-red-600"> {error}</p>
+            )}
             <button className="btn btn-primary w-full mt-6">Sign In</button>
           </form>
 

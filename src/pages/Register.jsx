@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Register = () => {
+  const [error, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const { Createuser, setNewUser } = useContext(AuthContext);
 
   const handleSubmit = (e) => {
@@ -14,6 +16,15 @@ const Register = () => {
     const email = form.get("email");
     const password = form.get("password");
     console.log(name, photo, email, password);
+    const regex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+
+    // @ts-ignore
+    if (!regex.test(password)) {
+      setError(
+        "Password must be at least 6 characters long and include both uppercase and lowercase letters"
+      );
+      return;
+    }
 
     Createuser(email, password)
       .then((result) => {
@@ -81,17 +92,27 @@ const Register = () => {
               <label className="label">
                 <span className="label-text font-medium">Password</span>
               </label>
-              <input
-                type="password"
-                name="password"
-                placeholder="••••••••"
-                className="input input-bordered w-full"
-                required
-              />
+              <div className="relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  placeholder="••••••••"
+                  className="input input-bordered w-full "
+                  required
+                />
+                <button
+                  className="absolute inset-y-0 top-0 right-0 pr-3 flex items-center cursor-pointer"
+                  onClick={() => setShowPassword((prev) => !prev)}
+                >
+                  {!showPassword ? "🙈" : "👁️"}
+                </button>
+              </div>
             </div>
+            {error && (
+              <p className="font-semibold text-red-600 text-xs"> {error}</p>
+            )}
 
             <button type="submit" className="btn btn-primary w-full mt-6">
-              {/* <span className="loading loading-spinner"></span> */}
               Create Account
             </button>
           </form>

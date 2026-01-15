@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Header from "../components/Header";
+import { Toaster } from "react-hot-toast";
 
 const AuthLayout = () => {
   return (
@@ -10,6 +11,7 @@ const AuthLayout = () => {
         <Navbar></Navbar>
       </header>
       <Outlet></Outlet>
+      <Toaster></Toaster>
     </div>
   );
 };
