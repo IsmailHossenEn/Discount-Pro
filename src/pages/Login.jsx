@@ -17,11 +17,6 @@ const Login = () => {
     const email = form.get("email");
     const password = form.get("password");
 
-    if (password !== newUser) {
-      toast.error("enter valid password");
-      return;
-    }
-
     LoginUser(email, password)
       .then((result) => {
         const user = result.user;
@@ -31,7 +26,7 @@ const Login = () => {
       })
       .catch((error) => {
         setError(error.code);
-        toast.error(error);
+        toast.error(error.message);
         //console.error("LOGIN ERROR:", error.code, error.message);
       });
   };

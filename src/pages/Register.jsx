@@ -1,11 +1,12 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Register = () => {
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const { Createuser, setNewUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,7 +22,7 @@ const Register = () => {
     // @ts-ignore
     if (!regex.test(password)) {
       setError(
-        "Password must be at least 6 characters long and include both uppercase and lowercase letters"
+        "Password must be at least 6 characters long and include both uppercase and lowercase letters",
       );
       return;
     }
@@ -30,9 +31,10 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         setNewUser(user);
+        navigate("/");
       })
       .catch((error) => {
-        console.error("LOGIN ERROR:", error.code, error.message);
+        setError(error);
       });
   };
 
