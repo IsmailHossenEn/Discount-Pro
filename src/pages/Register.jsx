@@ -1,11 +1,12 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Register = () => {
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const { Createuser, setNewUser } = useContext(AuthContext);
+  const { Createuser, UpdateUser, setNewUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -30,11 +31,19 @@ const Register = () => {
     Createuser(email, password)
       .then((result) => {
         const user = result.user;
-        setNewUser(user);
-        navigate("/");
+        UpdateUser({ displayName: name, photoURL: photo })
+          .then(() => {
+            setNewUser({ ...user, displayName: name, photoURL: photo });
+            navigate("/");
+          })
+          .catch((error) => {
+            setError(error.message);
+            toast.error(error.message);
+          });
       })
       .catch((error) => {
-        setError(error);
+        setError(error.message);
+        toast.error(error.message);
       });
   };
 
@@ -103,6 +112,7 @@ const Register = () => {
                   required
                 />
                 <button
+                  type="button"
                   className="absolute inset-y-0 top-0 right-0 pr-3 flex items-center cursor-pointer"
                   onClick={() => setShowPassword((prev) => !prev)}
                 >

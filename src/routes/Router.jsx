@@ -10,6 +10,7 @@ import Home from "../pages/Home";
 import BrandDetails from "../pages/BrandDetails";
 import AuthLayout from "../layouts/AuthLayout";
 import PrivateRoute from "../provider/PrivateRoute";
+import UpdateProfile from "../pages/UpdateProfile";
 
 const router = createBrowserRouter([
   {
@@ -35,7 +36,7 @@ const router = createBrowserRouter([
       },
 
       {
-        path: "/brand/:id",
+        path: "brand/:id",
         element: (
           <PrivateRoute>
             <BrandDetails></BrandDetails>
@@ -48,7 +49,7 @@ const router = createBrowserRouter([
       },
 
       {
-        path: "/myprofile",
+        path: "myprofile",
         element: (
           <PrivateRoute>
             <MyProfile></MyProfile>
@@ -56,13 +57,22 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/about",
+        path: "updateprofile",
+
+        element: (
+          <PrivateRoute>
+            <UpdateProfile></UpdateProfile>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "about",
         element: <About></About>,
       },
     ],
   },
   {
-    path: "auth",
+    path: "/auth",
     element: <AuthLayout></AuthLayout>,
     children: [
       {

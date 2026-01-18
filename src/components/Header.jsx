@@ -29,26 +29,33 @@ const Header = () => {
         </a>
       </div>
       <div>
-        <h4>Welcome {newUser?.email} </h4>
+        <h4>Welcome {newUser?.displayName} </h4>
       </div>
       <div className="flex gap-4">
         <div className="flex flex-col items-center justify-center">
-          <CgProfile />
-          {/* <img
-            className=""
-            src="https://res.cloudinary.com/dn9bladxx/image/upload/v1729841567/picture-profile-icon-male-icon-human-or-people-sign-and-symbol-vector_we0wwg.jpg"
-            alt="profile Image"
-          /> */}
+          {newUser && (
+            <img
+              className="w-8 rounded-full "
+              src={newUser.photoURL}
+              alt={newUser.displayName}
+            />
+          )}
           <p>{newUser?.email}</p>
         </div>
+
         {newUser ? (
           <button onClick={logOut} className="btn">
             Logout
           </button>
         ) : (
-          <Link to="/auth/login" className="btn">
-            Login
-          </Link>
+          <div className="flex items-center gap-2">
+            <Link to="/auth/login" className="btn text-xs">
+              Login
+            </Link>
+            <Link to="/auth/register" className="btn text-xs">
+              Register
+            </Link>
+          </div>
         )}
       </div>
     </div>
