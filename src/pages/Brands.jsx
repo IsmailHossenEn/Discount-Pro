@@ -5,10 +5,8 @@ import { useState } from "react";
 const Brands = () => {
   const [inputSearch, setInputSearch] = useState("");
   const brands = useLoaderData();
-  console.log(brands);
 
   const handleSearchInput = (e) => {
-    console.log(e.target.value);
     const inputdata = e.target.value;
     setInputSearch(inputdata);
   };

@@ -28,8 +28,8 @@ const BrandCard = ({ item }) => {
 
       {/* Bottom: Button + Sale Text */}
       <div className="flex items-center justify-between mt-auto">
-        <Link to="/login">
-          <button className="px-4 py-2 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">
+        <Link to={`/brand/${item._id}`}>
+          <button className="px-4 py-2 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700 transition cursor-pointer">
             View Coupons
           </button>
         </Link>

@@ -1,5 +1,15 @@
+import toast from "react-hot-toast";
 import { FaStar } from "react-icons/fa";
-import { useLoaderData, useParams } from "react-router-dom";
+import { Link, useLoaderData, useParams } from "react-router-dom";
+
+const handleCopy = (code) => {
+  try {
+    navigator.clipboard.writeText(code);
+    toast.success("Coupon code copied");
+  } catch (error) {
+    toast.error("Failed to copy code");
+  }
+};
 
 const BrandDetails = () => {
   const { id } = useParams();
@@ -8,7 +18,6 @@ const BrandDetails = () => {
   const brand = brands.find((b) => b._id === id);
   return (
     <div className="w-11/12 mx-auto py-8">
-      {/* Brand Header */}
       <div className="flex items-center gap-4 mb-8 border p-4 rounded-lg">
         <img
           src={brand.brand_logo}
@@ -24,7 +33,6 @@ const BrandDetails = () => {
         </div>
       </div>
 
-      {/* Coupons Section */}
       <h3 className="text-xl font-semibold mb-4">Available Coupons</h3>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -39,19 +47,20 @@ const BrandDetails = () => {
                 Expires: {coupon.expiry_date}
               </p>
               <p className="mt-2 font-mono bg-gray-100 px-2 py-1 inline-block rounded">
-                {coupon.code}
+                {coupon.coupon_code}
               </p>
             </div>
 
             <div className="flex gap-2 mt-4">
-              {/* Copy Code */}
-              {/* <CopyToClipboard text={coupon.code} onCopy={handleCopy}> */}
-              <button className="btn btn-outline btn-sm">Copy Code</button>
-              {/* </CopyToClipboard> */}
+              <button
+                onClick={() => handleCopy(coupon.coupon_code)}
+                className="btn btn-outline btn-sm"
+              >
+                Copy Code
+              </button>
 
-              {/* Use Now */}
               <a
-                href={brand.brand_link}
+                href={brand.shop_link}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-primary btn-sm"
