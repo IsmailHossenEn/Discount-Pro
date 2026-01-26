@@ -5,51 +5,52 @@ import BannerSlider from "../components/BannerSlider";
 
 const Home = () => {
   const brands = useLoaderData();
-  const saleBrands = brands.filter((bra) => bra.isSaleOn);
-  // console.log("Response from the loader", brands[0]);
+  const saleBrands = brands.filter((brnd) => brnd.isSaleOn);
   return (
-    <div className="space-y-20">
-      {/* 🔹 Banner Slider */}
-      <section className="py-5">
+    <div>
+      <section className="relative overflow-hidden">
         <BannerSlider />
       </section>
 
-      {/* 🔹 Top Brands */}
-      <section className="px-6">
+      <section className="px-6 mt-10">
         <h2 className="text-3xl font-bold text-center mb-8">Top Brands</h2>
-
         <Marquee pauseOnHover speed={100} gradient={false}>
-          {brands.map((item) => (
-            <div className="w-full max-w-sm max-h-80 h-full mx-2.5 flex flex-col border border-gray-200 rounded-xl bg-white p-4 shadow-sm hover:shadow-md transition-shadow duration-300">
-              <Link to={`/brand/${item._id}`} className="mb-3">
-                <img
-                  src={item.brand_logo}
-                  alt={item.brand_name}
-                  className="h-20 object-cover"
-                />
-              </Link>
+          <div className="flex items-center gap-4">
+            {brands.map((item) => (
+              <div className="w-full max-w-sm max-h-80 h-50 flex flex-col items-center justify-center border border-[#d18df8cc] rounded-xl bg-[#e0aaff21] p-4 shadow-sm hover:shadow-md transition-shadow duration-300">
+                <Link to={`/brand/${item._id}`} className="mb-3">
+                  <img
+                    src={item.brand_logo}
+                    alt={item.brand_name}
+                    className="h-20 object-cover"
+                  />
+                </Link>
 
-              <h3 className="px-4 text-lg font-semibold text-gray-800 text-center mb-1">
-                {item.brand_name}
-              </h3>
+                <h3 className="px-4 text-lg font-semibold text-gray-800 text-center mb-1">
+                  {item.brand_name}
+                </h3>
 
-              <p className="px-4 text-sm text-gray-600 text-center line-clamp-2">
-                {item.description}
-              </p>
-            </div>
-          ))}
+                <p className="px-4 text-sm text-gray-600 text-center line-clamp-2">
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
         </Marquee>
       </section>
 
       {/* 🔹 Brands on Sell */}
-      <section className="px-6">
+      <section className="px-6 py-20">
         <h2 className="text-3xl font-bold text-center mb-10">
           Brands on Sell 🔥
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {saleBrands.map((saleb) => (
-            <div key={saleb._id} className="card bg-base-100 shadow-xl">
+            <div
+              key={saleb._id}
+              className="card bg-base-100 shadow-sm hover:shadow-xl duration-5 "
+            >
               <figure className="p-6">
                 <img
                   src={saleb.brand_logo}
@@ -67,7 +68,7 @@ const Home = () => {
 
                 <Link
                   to={`/brand/${saleb._id}`}
-                  className="btn btn-primary btn-sm mt-4"
+                  className="btn btn-md mt-4 bg-[#f66518] text-white hover:bg-[#d8550e] duration-5"
                 >
                   View Details
                 </Link>

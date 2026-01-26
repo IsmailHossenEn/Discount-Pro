@@ -5,30 +5,20 @@ import { CgProfile } from "react-icons/cg";
 import { MdDeveloperMode } from "react-icons/md";
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
+import NavItem from "./NavItem";
 
 const Navbar = () => {
   const { newUser } = useContext(AuthContext);
   return (
     <div className="flex items-center justify-center space-x-3">
-      <Link to="/" className="btn btn-outline">
-        <FaHome />
-        Home
-      </Link>
-      <Link to="/brands" className="btn btn-outline">
-        <RiCoupon2Line />
-        Brands
-      </Link>
+      <NavItem to="/" icon={FaHome} label="Home" />
+      <NavItem to="/brands" icon={RiCoupon2Line} label="Brands" />
+
       {newUser && (
-        <Link to="/myprofile" className="btn btn-outline">
-          <CgProfile />
-          My-Profile
-        </Link>
+        <NavItem to="/myprofile" icon={CgProfile} label="My Profile" />
       )}
 
-      <Link to="/about" className="btn btn-outline">
-        <MdDeveloperMode />
-        About Dev
-      </Link>
+      <NavItem to="/about" icon={MdDeveloperMode} label="About Dev" />
     </div>
   );
 };

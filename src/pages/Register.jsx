@@ -6,7 +6,8 @@ import toast from "react-hot-toast";
 const Register = () => {
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const { Createuser, UpdateUser, setNewUser } = useContext(AuthContext);
+  const { Createuser, UpdateUser, loginWitGoogle, setNewUser } =
+    useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -44,6 +45,19 @@ const Register = () => {
       .catch((error) => {
         setError(error.message);
         toast.error(error.message);
+      });
+  };
+
+  const handleLogin = () => {
+    loginWitGoogle()
+      .then((result) => {
+        setNewUser(result.user);
+        navigate("/");
+        toast.success("Welcome to Discount Pro");
+      })
+      .catch((error) => {
+        setError(error);
+        toast.error("Something Went Wrong", error.message);
       });
   };
 
@@ -131,7 +145,7 @@ const Register = () => {
 
           <div className="divider my-8">OR</div>
 
-          <button className="btn btn-outline w-full">
+          <button onClick={handleLogin} className="btn btn-outline w-full">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"

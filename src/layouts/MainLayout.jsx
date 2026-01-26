@@ -7,7 +7,7 @@ import { Toaster } from "react-hot-toast";
 const MainLayout = () => {
   return (
     <>
-      <header className="w-11/12 mx-auto">
+      <header className="px-4 py-3 sticky top-0 z-50 bg-white/20 backdrop-blur-xl border-b border-white/30 shadow-lg">
         <Header></Header>
         <Navbar></Navbar>
       </header>
