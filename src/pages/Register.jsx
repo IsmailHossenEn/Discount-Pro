@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import "./Login.css";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import toast from "react-hot-toast";
@@ -62,15 +63,15 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-base-200 px-4">
-      <div className="card w-full max-w-md shadow-2xl bg-base-100">
+    <div className="min-h-screen flex items-center justify-center bg-linear-to-r from-[#8b0e8b] via-[#c026d3] to-[#f97316] bg-[bg-size-[200%_200%] animate-[gradientMove_8s_ease_infinite]">
+      <div className="glass-card w-full max-w-md">
         <div className="card-body p-8">
-          <h2 className="text-center text-3xl font-bold mb-2">
+          <h2 className="text-center text-3xl text-white font-bold mb-2">
             Create Account
           </h2>
-          <p className="text-center text-base-content/70 mb-8">
+          <p className="text-center text-white mb-8">
             Already have an account?{" "}
-            <Link to="/auth/login" className="link link-primary font-medium">
+            <Link to="/auth/login" className="link text-white font-bold">
               Login
             </Link>
           </p>
@@ -78,7 +79,9 @@ const Register = () => {
           <form onSubmit={handleSubmit} className="space-y-5">
             <div className="form-control">
               <label className="label">
-                <span className="label-text font-medium">Full Name</span>
+                <span className="label-text text-white font-medium">
+                  Full Name
+                </span>
               </label>
               <input
                 type="text"
@@ -90,7 +93,9 @@ const Register = () => {
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text font-medium">Photo URl</span>
+                <span className="label-text text-white font-medium">
+                  Photo URl
+                </span>
               </label>
               <input
                 type="text"
@@ -102,7 +107,7 @@ const Register = () => {
 
             <div className="form-control">
               <label className="label">
-                <span className="label-text font-medium">Email</span>
+                <span className="label-text text-white font-medium">Email</span>
               </label>
               <input
                 type="email"
@@ -115,7 +120,9 @@ const Register = () => {
 
             <div className="form-control">
               <label className="label">
-                <span className="label-text font-medium">Password</span>
+                <span className="label-text text-white font-medium">
+                  Password
+                </span>
               </label>
               <div className="relative">
                 <input
@@ -138,14 +145,22 @@ const Register = () => {
               <p className="font-semibold text-red-600 text-xs"> {error}</p>
             )}
 
-            <button type="submit" className="btn btn-primary w-full mt-6">
+            <button
+              type="submit"
+              className="btn w-full cursor-pointer bg-[#b61dae] text-white border border-[#3b0639] hover:border-[#f66518] hover:bg-[#f66518] transition-all duration-300 ease-in-out hover:text-white"
+            >
               Create Account
             </button>
           </form>
 
-          <div className="divider my-8">OR</div>
+          <div className="divider my-8 divide-white text-white font-extrabold">
+            OR
+          </div>
 
-          <button onClick={handleLogin} className="btn btn-outline w-full">
+          <button
+            onClick={handleLogin}
+            className="btn w-full flex gap-2 justify-center text-white bg-[#f66518] cursor-pointer border border-[#f66518] hover:border-[#3b0639] hover:bg-[#3b0639] transition-all duration-300 ease-in-out hover:text-white"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"

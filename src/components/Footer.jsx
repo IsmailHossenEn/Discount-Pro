@@ -28,14 +28,14 @@ const Footer = () => {
             </h3>
             <div className="flex gap-6 text-2xl">
               <a
-                href="#"
+                href="https://github.com/IsmailHossenEn"
                 target="_blank"
                 className="text-gray-400 hover:text-purple-700 transition-colors"
               >
                 <FaGithub />
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/in/ismail-hossen-emon1998/"
                 target="_blank"
                 className="text-gray-400 hover:text-blue-600 transition-colors"
               >

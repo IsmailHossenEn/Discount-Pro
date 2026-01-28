@@ -2,8 +2,7 @@ import { Link } from "react-router-dom";
 
 const BrandCard = ({ item }) => {
   return (
-    <div className="w-full border border-gray-200 rounded-lg bg-white p-4 shadow-sm flex flex-col gap-4">
-      {/* Top: Logo + Rating {item.brand_logo}*/}
+    <div className="w-full border border-[#b61dae] rounded-lg bg-[#ecdef5] p-4 shadow-md hover:shadow-2xl hover:bg-white transition-all duration-1000 ease-in-out flex flex-col gap-4">
       <div className="flex items-center gap-4">
         <img
           src={item.brand_logo}
@@ -17,7 +16,6 @@ const BrandCard = ({ item }) => {
         </div>
       </div>
 
-      {/* Middle: Name + Description */}
       <div>
         <h3 className="text-lg font-semibold text-gray-800">
           {item.brand_name}
@@ -26,16 +24,15 @@ const BrandCard = ({ item }) => {
         <p className="text-sm text-gray-600 mt-1">{item.description}</p>
       </div>
 
-      {/* Bottom: Button + Sale Text */}
       <div className="flex items-center justify-between mt-auto">
         <Link to={`/brand/${item._id}`}>
-          <button className="px-4 py-2 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700 transition cursor-pointer">
+          <button className="px-4 py-2 text-sm bg-[#f66518] text-white hover:bg-[#d8550e] duration-300 ease-in-out cursor-pointer">
             View Coupons
           </button>
         </Link>
 
         {item.isSaleOn && (
-          <span className="btn btn-outline text-red-500 text-sm font-semibold animate-bounce">
+          <span className="btn btn-outline text-red-500 text-sm font-semibold bg-white animate-bounce">
             Sale is on
           </span>
         )}

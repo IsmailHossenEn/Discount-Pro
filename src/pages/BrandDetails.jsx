@@ -17,8 +17,8 @@ const BrandDetails = () => {
 
   const brand = brands.find((b) => b._id === id);
   return (
-    <div className="w-11/12 mx-auto py-8">
-      <div className="flex items-center gap-4 mb-8 border p-4 rounded-lg">
+    <div className="w-11/12 mx-auto  py-26">
+      <div className="flex items-center gap-4 mb-8 shadow-xs shadow-[#ec7d41] p-4 rounded-lg">
         <img
           src={brand.brand_logo}
           alt={brand.brand_name}
@@ -39,7 +39,7 @@ const BrandDetails = () => {
         {brand.coupons.map((coupon, index) => (
           <div
             key={index}
-            className="border p-4 rounded-lg shadow-sm flex flex-col justify-between"
+            className="p-6 rounded-lg   flex flex-col justify-between bg-white border border-[#c82cc8] hover:border-[#c82cc8] hover:shadow-[0_20px_40px_rgba(200,44,200,0.15)]  transition-all duration-300"
           >
             <div>
               <p className="font-medium mb-2">{coupon.description}</p>

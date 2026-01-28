@@ -43,14 +43,14 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-[#8b0e8b] via-[#c026d3] to-[#f97316] bg-[length:200%_200%] animate-[gradientMove_8s_ease_infinite]">
+    <div className="min-h-screen flex items-center justify-center bg-linear-to-r from-[#8b0e8b] via-[#c026d3] to-[#f97316] bg-[bg-size-[200%_200%] animate-[gradientMove_8s_ease_infinite]">
       <div className="glass-card w-full max-w-md">
         <div className="card-body p-8">
-          <h2 className="text-center text-3xl font-bold text-[#282428] mb-2">
+          <h2 className="text-center text-3xl font-bold text-white mb-2">
             Welcome Back
           </h2>
 
-          <p className="text-center text-[#282428] mb-8">
+          <p className="text-center text-white mb-8">
             Don't have an account?
             <Link
               to="/auth/register"
@@ -61,6 +61,9 @@ const Login = () => {
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-5">
+            <label className="label">
+              <span className="label-text text-white font-medium">Email</span>
+            </label>
             <input
               type="email"
               name="email"
@@ -70,6 +73,11 @@ const Login = () => {
             />
 
             <div className="relative">
+              <label className="label">
+                <span className="label-text text-white font-medium">
+                  Password
+                </span>
+              </label>
               <input
                 type={showPassword ? "text" : "password"}
                 name="password"
@@ -95,7 +103,9 @@ const Login = () => {
             </button>
           </form>
 
-          <div className="divider ">OR</div>
+          <div className="divider text-white divide-white font-extrabold">
+            OR
+          </div>
 
           <button
             onClick={handleLoginWithGoogle}
